@@ -1,20 +1,35 @@
+contact = new Mongo.Collection("contact");
+Tasks = new Mongo.Collection("tasks");
 if (Meteor.isClient) {
   // counter starts at 0
   Session.setDefault("counter", 0);
 
-  Template.hello.helpers({
-    counter: function () {
-      return Session.get("counter");
+ Template.contacts.helpers({
+   contacts: function () {
+     return contact.find({});
+   }
+ });
+  Template.tasks.events({
+    'submit': function(event, template) {
+      event.preventDefault();
+      /*var task = event.target.tasks.value;
+      var recipient = event.target.tasks.value;
+      var difficulty = event.target.tasks.value;
+      var priority = event.target.tasks.value; */
+      Tasks.insert({
+        task_name: template.find(".task").value,
+        recipient: template.find(".recipient").value,
+        difficulty: template.find(".difficulty").value,
+        priority: template.find(".priority").value
+        /*task_name: task,
+        recipient: recipient,
+        difficulty: difficulty,
+        priority: priority*/
+    });
+      console.log("Koitett lisätä");
     }
   });
-
-  Template.hello.events({
-    'click button': function () {
-      // increment the counter when button is clicked
-      // blaablaablaa blaablaablaa
-      Session.set("counter", Session.get("counter") + 1);
-    }
-  });
+  
 }
 
 if (Meteor.isServer) {
