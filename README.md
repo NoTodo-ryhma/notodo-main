@@ -10,5 +10,6 @@ NoToDo main
 
 Jos tarvitsee joskus resetoida paikallinen git repo samaan tilaan Githubin kanssa nämä käskyt auttavat. Huomaa, että menentät kaikki paikalliset muutokset:
 
+
 git fetch --all
 git reset --hard origin/master
