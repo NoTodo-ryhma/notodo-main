@@ -10,23 +10,27 @@ if (Meteor.isClient) {
    }
  });
   Template.tasks.events({
-    'submit': function(event, template) {
+    'click button': function(event, template) {
       event.preventDefault();
       /*var task = event.target.tasks.value;
       var recipient = event.target.tasks.value;
       var difficulty = event.target.tasks.value;
       var priority = event.target.tasks.value; */
       Tasks.insert({
-        task_name: template.find(".task").value,
-        recipient: template.find(".recipient").value,
-        difficulty: template.find(".difficulty").value,
-        priority: template.find(".priority").value
+        task_name: template.find("#task").value,
+        recipient: template.find("#recipient").value,
+        difficulty: template.find("#difficulty").value,
+        priority: template.find("#priority").value
         /*task_name: task,
         recipient: recipient,
         difficulty: difficulty,
         priority: priority*/
     });
-      console.log("Koitett lisätä");
+      console.log(template.find("#task").value);
+      console.log(template.find("#recipient").value);
+      console.log(template.find("#difficulty").value);
+
+      
     }
   });
   
