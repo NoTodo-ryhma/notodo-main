@@ -13,4 +13,4 @@ Jos tarvitsee joskus resetoida paikallinen git repo samaan tilaan Githubin kanss
 
 git fetch --all
 
-git reset --hard origin/master
+git reset --hard origin/dev 
