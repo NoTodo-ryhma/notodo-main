@@ -14,12 +14,12 @@
       </div>
       <div class="small-8 block">
         <label>Task name</label>
-        <input type="text" name="task2" id="task"/>
+        <input type="text" name="task" id="task"/>
       </div>
       <div class="small-8 block">
     	<label class="red">Task Recipient</label>
         <select id="recipient">
-          {{#each contacts}}
+          {{#each contacts_list}}
             {{> contacts}}
           {{/each}}
           <option value="something@something.com">Heiko Laux</option>
@@ -58,5 +58,5 @@
       </div>
 </template>
 <template name="contacts">
-  <option>{{name}}</option>
+  <option value={{email}}>{{name}}</option>
 </template>

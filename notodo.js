@@ -4,20 +4,28 @@ if (Meteor.isClient) {
   // counter starts at 0
   Session.setDefault("counter", 0);
 
- Template.contacts.helpers({
-   contacts: function () {
+ Template.tasks.helpers({
+   contacts_list: function () {
+     console.log("contacts");
+     console.log(contact.find());
      return contact.find({});
    }
  });
   Template.tasks.events({
-    'submit': function(event, template) {
+    'click button': function(event, template) {
+      
+      console.log("eventissä ollaan");
+      console.log(event.target);
       event.preventDefault();
-      /*var task = event.target.tasks.value;
+      var task2 = event.$("#task");
+      console.log(task2);
+      var task = event.target.button.value;
+       /*
       var recipient = event.target.tasks.value;
       var difficulty = event.target.tasks.value;
       var priority = event.target.tasks.value; */
       Tasks.insert({
-        task_name: template.find(".task").value,
+        task_name: template.find("task").value,
         recipient: template.find(".recipient").value,
         difficulty: template.find(".difficulty").value,
         priority: template.find(".priority").value
@@ -26,7 +34,7 @@ if (Meteor.isClient) {
         difficulty: difficulty,
         priority: priority*/
     });
-      console.log("Koitett lisätä");
+      console.log("Koitettu lisätä");
     }
   });
   
