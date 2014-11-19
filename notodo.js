@@ -4,6 +4,17 @@ if (Meteor.isClient) {
   // counter starts at 0
   Session.setDefault("counter", 0);
 
+  Template.tasks.rendered=function() {
+    $('#startTime').datepicker();
+  }
+  
+  Template.showTasks.helpers({
+    tasks_list: function () {
+      console.log("tasks");
+      console.log(Tasks.find());
+      return Tasks.find({});
+    }
+  });
  Template.tasks.helpers({
    contacts_list: function () {
      console.log("contacts");
@@ -14,9 +25,7 @@ if (Meteor.isClient) {
   Template.tasks.events({
     'click button': function(event, template) {
       event.preventDefault();
-      var task2 = event.$("#task");
-      console.log(task2);
-      var task = event.target.button.value;
+      
        /*
       var recipient = event.target.tasks.value;
       var difficulty = event.target.tasks.value;
@@ -33,7 +42,6 @@ if (Meteor.isClient) {
     });
     }
   });
-  
 }
 
 if (Meteor.isServer) {

@@ -3,7 +3,14 @@
 </head>
 
 <body>
-  {{> tasks}}
+  <div>
+    {{> tasks}}
+  </div>
+  <div>
+    
+  
+    {{> showTasks}}
+  </div>
 </body>
 
 <template name="tasks">
@@ -15,6 +22,10 @@
       <div class="small-8 block">
         <label>Task name</label>
         <input type="text" name="task" id="task"/>
+      </div>
+        <label>Start time</label>
+      <div class="small-8 block">
+          <input type="text" class="form-control" id="startTime">
       </div>
       <div class="small-8 block">
     	<label class="red">Task Recipient</label>
@@ -30,10 +41,10 @@
     </div>
     <div class="small-8 block">
     	<label id="sliderLabel" class="red">Priority</label>
-    	<div class="range-slider" data-slider data-options="start: 1; end: 5; display_selector: #sliderOutput3;" id="priority">
+    	<div class="range-slider" data-slider data-options="start: 1; end: 5; display_selector: #sliderOutput3;" >
   			<span class="range-slider-handle" role="slider" tabindex="0"></span>
   			<span class="range-slider-active-segment"></span>
-  			<input type="hidden" />
+  			<input type="hidden" id="priority" />
       </div>
       <div class="small-8 block">
     		<span id="sliderOutput3"></span>
@@ -41,10 +52,10 @@
 		</div>
       <div class="small-8 block">
     	<label id="sliderLabel" class="red">Difficulty</label>
-    	<div class="range-slider" data-slider data-options="start: 1; end: 5; display_selector: #sliderOutput4;" id="difficulty">
+    	<div class="range-slider" data-slider data-options="start: 1; end: 5; display_selector: #sliderOutput4;" >
   			<span class="range-slider-handle" role="slider" tabindex="0"></span>
   			<span class="range-slider-active-segment"></span>
-  			<input type="hidden">
+  			<input type="hidden" id="difficulty" />
 	    </div>
       </div>
       <div class="small-8 block">
@@ -57,6 +68,20 @@
       </form>
       </div>
 </template>
+
 <template name="contacts">
   <option value={{email}}>{{name}}</option>
+</template>
+
+<template name="showTasks">
+  <div>
+  {{#each tasks_list}}
+    <div>
+      Task name: {{task_name}}
+      Task recipient: {{recipient}}
+      Task difficulty: {{difficulty}}
+      Task priority: {{priority}}
+    </div>
+  {{/each}}
+  </div>
 </template>
