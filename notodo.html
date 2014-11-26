@@ -1,87 +1,24 @@
 <head>
   <title>notodo</title>
+  <script src="//code.jquery.com/jquery-1.10.2.js"></script>
+  <script src="//code.jquery.com/ui/1.11.2/jquery-ui.js"></script>
+  <script>
+    $(function() {
+      $( "#datepicker" ).datepicker();
+    });
+    
+  </script>
 </head>
 
 <body>
   <div>
+  </div>
+  <div>
     {{> tasks}}
   </div>
   <div>
-    
-  
     {{> showTasks}}
   </div>
-</body>
-
-<template name="tasks">
-    <div class="small-8 group">
-      <form>
-      <div class="small-8 block">
-      <img src="/no_to_do_logo.png" class="img_rotate img_pad" alt="no/todo_logo"/>
-      </div>
-      <div class="small-8 block">
-        <label>Task name</label>
-        <input type="text" name="task" id="task"/>
-      </div>
-        <label>Start time</label>
-      <div class="small-8 block">
-          <input type="text" class="form-control" id="startTime">
-      </div>
-      <div class="small-8 block">
-    	<label class="red">Task Recipient</label>
-        <select id="recipient">
-          {{#each contacts_list}}
-            {{> contacts}}
-          {{/each}}
-          <option value="something@something.com">Heiko Laux</option>
-          <option value="something@something.com">DJ Hell</option>
-          <option value="something@something.com">Sven Väth</option>
-          <option value="something@something.com">Jeff Mills</option>
-        </select>
-    </div>
-    <div class="small-8 block">
-    	<label id="sliderLabel" class="red">Priority</label>
-    	<div class="range-slider" data-slider data-options="start: 1; end: 5; display_selector: #sliderOutput3;" >
-  			<span class="range-slider-handle" role="slider" tabindex="0"></span>
-  			<span class="range-slider-active-segment"></span>
-  			<input type="hidden" id="priority" />
-      </div>
-      <div class="small-8 block">
-    		<span id="sliderOutput3"></span>
-    	</div>
-		</div>
-      <div class="small-8 block">
-    	<label id="sliderLabel" class="red">Difficulty</label>
-    	<div class="range-slider" data-slider data-options="start: 1; end: 5; display_selector: #sliderOutput4;" >
-  			<span class="range-slider-handle" role="slider" tabindex="0"></span>
-  			<span class="range-slider-active-segment"></span>
-  			<input type="hidden" id="difficulty" />
-	    </div>
-      </div>
-      <div class="small-8 block">
-    	<span id="sliderOutput4"></span>
-    </div>
-    <div class="small-8 block">
-    	
-      <button>add task</button>
-    </div>
-      </form>
-      </div>
-</template>
-
-<template name="contacts">
-  <option value={{email}}>{{name}}</option>
-</template>
-
-<template name="showTasks">
   <div>
-  {{#each tasks_list}}
-    <div>
-      Task name: {{task_name}}
-      Task recipient: {{recipient}}
-      Task difficulty: {{difficulty}}
-      Task priority: {{priority}}
-    </div>
-  {{/each}}
   </div>
-</template>
+</body>

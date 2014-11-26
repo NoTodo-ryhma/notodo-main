@@ -1,0 +1,14 @@
+<template name="showTasks">
+  <div>
+  {{#each tasks_list}}
+    <div>
+      Task name: {{task_name}}
+      task start date: {{startDate}}
+      task end date: {{endDate}}
+      Task recipient: {{recipient}}
+      Task difficulty: {{difficulty}}
+      Task priority: {{priority}}
+    </div>
+  {{/each}}
+  </div>
+</template>
