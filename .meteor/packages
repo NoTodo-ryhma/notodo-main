@@ -8,3 +8,7 @@ autopublish
 insecure
 ewall:foundation
 aldeed:autoform
+accounts-github
+accounts-ui
+accounts-google
+
