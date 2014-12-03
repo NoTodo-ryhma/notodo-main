@@ -10,7 +10,7 @@
       </div>
       <div class="small-8 block">
         <label>Start date</label>
-        <input type=date step=7 min=2014-09-08 id="startDate">
+        {{> datepicker}}
       </div>
         <div class="small-8 block">
         <label>End date</label>
@@ -30,23 +30,13 @@
     </div>
     <div class="small-8 block">
     	<label id="sliderLabel" class="red">Priority</label>
-    	<div class="range-slider" data-slider data-options="start: 1; end: 5; display_selector: #sliderOutput3;" >
-  			<span class="range-slider-handle" role="slider" tabindex="0"></span>
-  			<span class="range-slider-active-segment"></span>
-  			<input type="hidden" id="priority" />
-      </div>
-      <div class="small-8 block">
-    		<span id="sliderOutput3"></span>
-    	</div>
-		</div>
+  			<input type="range" value="3" max="5" min="1" id="priority" />
+   	</div>
       <div class="small-8 block">
     	<label id="sliderLabel" class="red">Difficulty</label>
-    	<div class="range-slider" data-slider data-options="start: 1; end: 5; display_selector: #sliderOutput4;" >
-  			<span class="range-slider-handle" role="slider" tabindex="0"></span>
-  			<span class="range-slider-active-segment"></span>
-  			<input type="hidden" id="difficulty" />
-	    </div>
-      </div>
+  			<input type="range" value="3" max="5" min="1" id="difficulty" />
+ 
+       </div>
       <div class="small-8 block">
     	<span id="sliderOutput4"></span>
     </div>

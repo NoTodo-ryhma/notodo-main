@@ -4,14 +4,11 @@
 # but you can also edit it by hand.
 
 meteor-platform
-autopublish
 insecure
 ewall:foundation
 aldeed:autoform
 accounts-github
-<<<<<<< HEAD
-=======
 accounts-ui
 accounts-google
->>>>>>> 47b838e2ac42204c5c4536484c1f515c1628a3ae
-
+jquery
+linto:jquery-ui

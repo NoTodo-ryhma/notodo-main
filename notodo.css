@@ -1,4 +1,21 @@
 /* CSS declarations go here */
+
+@font-face {
+    font-family: QuickSand-regular;
+    src: url(fonts/Quicksand-Regular.ttf);
+}
+
+@font-face {
+    font-family: QuickSand-bold;
+    src: url(fonts/Quicksand-Bold.ttf);
+}
+
+@font-face {
+	font-family: MerriweatherSans;
+	src: url(fonts/MerriweatherSans-Regular.ttf);
+	
+}
+
 .img_rotate {
   -ms-transform: rotate(-7deg); /* IE 9 */
     -webkit-transform: rotate(-7deg); /* Chrome, Safari, Opera */
@@ -9,6 +26,7 @@
 }
 body {
   background-color:#666;
+  font-family: MerriweatherSans;
 }
 form {
   padding-left: 10%;
@@ -16,3 +34,91 @@ form {
   border-radius: 7px;
   border:5px solid #d2ff00;
 }
+
+.number_scale {
+	height: 10px;
+	width: auto;	
+	
+}
+.navi_img {
+	height: 70px;
+	width: auto;
+	
+}
+
+.range_container {
+	width:350px;
+	height:80px;
+	text-align: center;
+	vertical-align: center;
+}
+
+.ynpyra {
+	display: inline-block;
+	width:30px;
+	height:30px;
+	 border-radius: 50%;
+	 background-color: #338adc;
+ 	 color: white;
+ 	 font-size:20px;
+	text-align: center;
+}
+
+
+.slider_bg {
+
+	position:absolute;
+	z-index:2;
+	background-color: white;
+	border-radius: 3px;
+	border:2px solid gray;
+	width:40%;
+	height:70%;
+	top: 20%;
+	left:20%;
+	visibility:visible;	
+	font-family: QuickSand-bold;
+
+}
+
+.slider_bg input {
+	
+	color: silver;
+	
+}
+
+#slider {
+	width:100px;
+	height:50px;
+	visibility:inherit;
+	padding:2px;
+}
+
+#slider_bg2 {
+	
+	position:absolute;
+	z-index:2;
+	background-color: white;
+	border-radius: 2px;
+	border:2px solid black;
+	width:200px;
+	height:150px;
+	top: 30%;
+	left:45%;
+	visibility:hidden;	
+	}
+
+#slider_bg3 {
+	position:absolute;
+	z-index:2;
+	background-color: white;
+	border-radius: 2px;
+	border:2px solid black;
+	width:200px;
+	height:150px;
+	top: 30%;
+	left:45%;
+	visibility:hidden;	
+}
+
+

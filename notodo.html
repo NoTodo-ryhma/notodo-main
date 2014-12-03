@@ -1,13 +1,6 @@
 <head>
   <title>notodo</title>
-  <script src="//code.jquery.com/jquery-1.10.2.js"></script>
-  <script src="//code.jquery.com/ui/1.11.2/jquery-ui.js"></script>
-  <script>
-    $(function() {
-      $( "#datepicker" ).datepicker();
-    });
-    
-  </script>
+
 </head>
 
 <body>
@@ -15,7 +8,13 @@
     {{> loginButtons}}
   </div>
   <div>
-    {{> tasks}}
+  Kirjautunut käyttäjä:{{userNow.username}} 
+  </div>
+  <div class="small-8 group">
+    {{> addTask}}
+  </div>
+  <div>
+  
   </div>
   <div>
     {{> showTasks}}
