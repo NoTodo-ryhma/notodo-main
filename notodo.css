@@ -1,5 +1,8 @@
 /* CSS declarations go here */
 
+
+
+
 @font-face {
     font-family: QuickSand-regular;
     src: url(fonts/Quicksand-Regular.ttf);
@@ -11,28 +14,33 @@
 }
 
 @font-face {
+    font-family: Lobster-reqular;
+    src: url(fonts/Lobster-Regular.ttf);
+}
+
+
+@font-face {
 	font-family: MerriweatherSans;
 	src: url(fonts/MerriweatherSans-Regular.ttf);
 	
 }
+
+
 
 .img_rotate {
   -ms-transform: rotate(-7deg); /* IE 9 */
     -webkit-transform: rotate(-7deg); /* Chrome, Safari, Opera */
     transform: rotate(-7deg);
 }
+
 .img_pad {
   padding: 20px;
 }
-body {
-  background-color:#666;
+
+body .login-buttons-dropdown-align- {
+  
   font-family: MerriweatherSans;
-}
-form {
-  padding-left: 10%;
-  background-color: #d2e1d5;
-  border-radius: 7px;
-  border:5px solid #d2ff00;
+  
 }
 
 .number_scale {
@@ -40,6 +48,7 @@ form {
 	width: auto;	
 	
 }
+
 .navi_img {
 	height: 70px;
 	width: auto;
@@ -47,78 +56,89 @@ form {
 }
 
 .range_container {
-	width:350px;
-	height:80px;
+	width:100%;
 	text-align: center;
-	vertical-align: center;
+	vertical-align: top;
+	padding-bottom: 10px;
+	
+	
 }
 
-.ynpyra {
-	display: inline-block;
-	width:30px;
-	height:30px;
+.headTitle {
+	
+	font-family: Lobster-reqular;
+	font-size:50px;
+	text-align: center;
+	background-color:white;
+	color: black;
+	
+}
+
+.titleText {
+	
+	width:100%;
+	padding-top: 8px;
+	padding-bottom: 5px;
+	text-align: center;
+	font-family: QuickSand-bold;
+	
+	
+}
+
+.ympyra {
+	display: inline-table;
+	width:26px;
+	height:26px;
 	 border-radius: 50%;
+	border: 1px solid;
+	border-color:#338adc;
 	 background-color: #338adc;
  	 color: white;
- 	 font-size:20px;
-	text-align: center;
+ 	font-size:16px;
 }
+
+
+.ympyra_hover {
+
+	border-color: #338adc;
+	color: #338adc;
+ 	background-color: white;
+}
+
+.ympyra_select {
+
+ 	background-color: white;
+	border: 1px solid;
+	border-color: #338adc;
+	color: #338adc;
+
+}
+
+
 
 
 .slider_bg {
-
-	position:absolute;
-	z-index:2;
-	background-color: white;
-	border-radius: 3px;
-	border:2px solid gray;
-	width:40%;
-	height:70%;
-	top: 20%;
-	left:20%;
+	background-color:lightblue;
+	border-radius: 0px;
+	border-top:2px solid gray;
+	border-bottom:2px solid gray;
 	visibility:visible;	
-	font-family: QuickSand-bold;
+	font-family: QuickSand-regular;
 
 }
 
-.slider_bg input {
+.buttons {
+	padding: 12px;
+	height: 80px;
+	width: auto;
+	text-align: center;
+		
+}
+
+
+.slider_bg input textarea {
 	
 	color: silver;
 	
 }
-
-#slider {
-	width:100px;
-	height:50px;
-	visibility:inherit;
-	padding:2px;
-}
-
-#slider_bg2 {
-	
-	position:absolute;
-	z-index:2;
-	background-color: white;
-	border-radius: 2px;
-	border:2px solid black;
-	width:200px;
-	height:150px;
-	top: 30%;
-	left:45%;
-	visibility:hidden;	
-	}
-
-#slider_bg3 {
-	position:absolute;
-	z-index:2;
-	background-color: white;
-	border-radius: 2px;
-	border:2px solid black;
-	width:200px;
-	height:150px;
-	top: 30%;
-	left:45%;
-	visibility:hidden;	
-}
-
 

@@ -1,16 +1,16 @@
 <head>
-  <title>notodo</title>
-
+<title>notodo</title>
+<meta name="viewport" content="initial-scale=1">
 </head>
 
 <body>
   <div>
     {{> loginButtons}}
   </div>
-  <div>
-  Kirjautunut käyttäjä:{{userNow.username}} 
+  <div class="headTitle">
+  <div style="text-decoration: line-through;font-size:30px; display: inline-block;vertical-align: top;">No</div>Todo
   </div>
-  <div class="small-8 group">
+  <div>
     {{> addTask}}
   </div>
   <div>
