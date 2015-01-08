@@ -97,8 +97,27 @@ body .login-buttons-dropdown-align- {
  	font-size:16px;
 }
 
+.ympyra2 {
+	display: inline-table;
+	width:26px;
+	height:26px;
+	 border-radius: 50%;
+	border: 1px solid;
+	border-color:#338adc;
+	 background-color: #338adc;
+ 	 color: white;
+ 	font-size:16px;
+}
+
 
 .ympyra_hover {
+
+	border-color: #338adc;
+	color: #338adc;
+ 	background-color: white;
+}
+
+.ympyra2_hover {
 
 	border-color: #338adc;
 	color: #338adc;
@@ -114,7 +133,14 @@ body .login-buttons-dropdown-align- {
 
 }
 
+.ympyra2_select {
 
+ 	background-color: white;
+	border: 1px solid;
+	border-color: #338adc;
+	color: #338adc;
+
+}
 
 
 .slider_bg {
@@ -142,3 +168,5 @@ body .login-buttons-dropdown-align- {
 	
 }
 
+.inp_taskName {}
+.inp_ownerkName {}

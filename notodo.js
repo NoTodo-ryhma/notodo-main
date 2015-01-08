@@ -3,15 +3,15 @@ Tasks = new Mongo.Collection("tasks");
 
 if (Meteor.isClient) {  
   Meteor.call("getSessionId", function(err, id) {
-  return console.log(id);
+  return console.log("Session id: " + id);
 });
   
   // counter starts at 0
   //Session.setDefault("counter", 0);
 
   Template.tasks.rendered=function() {
-    $('#startTime').datepicker();
-    $('#endTime').datepicker();
+    $('#startDate').datepicker();
+    $('#endDate').datepicker();
   }
   
   Template.showTasks.helpers({
@@ -28,16 +28,18 @@ if (Meteor.isClient) {
      return contact.find({});
    }
  });
-  Template.tasks.events({
+  Template.addTask.events({
     'click button': function(event, template) {
       event.preventDefault();
       Tasks.insert({
-        task_name: template.find("#task").value,
+        task_name: template.find("#inp_taskName").value,
+        owner: template.find("#inp_ownerkName").value,
+        assigned_to: template.find("#inp_assignedName").value,
         startDate: template.find("#startDate").value,
         endDate: template.find("#endDate").value,
-        recipient: template.find("#recipient").value,
-        difficulty: template.find("#difficulty").value,
-        priority: template.find("#priority").value
+        difficulty: Session.get("#difficulty"),
+        priority: Session.get("#priority")
+        // Priority and difficulty handled in addTask.js!!!
     });
     }
   });
