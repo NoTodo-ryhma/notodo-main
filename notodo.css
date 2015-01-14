@@ -2,7 +2,6 @@
 
 
 
-
 @font-face {
     font-family: QuickSand-regular;
     src: url(fonts/Quicksand-Regular.ttf);
@@ -27,10 +26,85 @@
 
 
 
-.img_rotate {
-  -ms-transform: rotate(-7deg); /* IE 9 */
-    -webkit-transform: rotate(-7deg); /* Chrome, Safari, Opera */
-    transform: rotate(-7deg);
+@media (max-width: 500px) {
+
+	.slider_bg {
+	
+		background-color:lightblue;
+		border:1px solid gray;	
+		visibility:visible;	
+		font-family: QuickSand-regular;
+		margin-left: auto;
+    	margin-right: auto;
+		padding-left: 3px;
+		padding-right: 3px;
+
+	position: relative;
+    -webkit-animation: mymove 3s;  /* Chrome, Safari, Opera */
+    -webkit-animation-iteration-count: 2;  /* Chrome, Safari, Opera */
+    -webkit-animation-fill-mode: forwards;  /* Chrome, Safari, Opera */
+    animation: mymove 3s;
+    animation-iteration-count: 2;
+    animation-play-state: paused;
+
+		
+	}
+
+}
+
+
+@media screen and (min-width: 501px) {
+
+	.slider_bg {
+	
+	background-color:lightblue;
+	border-radius: 6px;
+	border:2px solid gray;
+	
+	visibility:visible;	
+	font-family: QuickSand-regular;
+	margin-left: auto;
+    margin-right: auto;
+	width: 40%;	
+		
+
+}
+
+
+
+}
+
+@-webkit-keyframes mymove {
+    from {top: 0px;}
+    to {top: 200px;}
+}
+
+@keyframes mymove {
+    from {top: 0px;}
+    to {top: 200px;}
+}
+
+
+#btn_addTask {
+
+		width:25px;
+		margin-left: auto;
+    	margin-right: auto;
+		background-color: gray;
+
+	}
+
+
+.loginButtons {
+padding-top:5%;	
+width:100%;
+text-align: center;
+}
+
+.logouthead {
+
+padding: 6px;	
+	
 }
 
 .img_pad {
@@ -41,6 +115,17 @@ body .login-buttons-dropdown-align- {
   
   font-family: MerriweatherSans;
   
+}
+
+
+.slider_head2 {
+	width:100%;
+	padding-top: 8px;
+	padding-bottom: 10px;
+	
+	text-align: center;
+	font-family: QuickSand-bold;
+	border-bottom: 2px solid gray;	
 }
 
 .number_scale {
@@ -143,15 +228,6 @@ body .login-buttons-dropdown-align- {
 }
 
 
-.slider_bg {
-	background-color:lightblue;
-	border-radius: 0px;
-	border-top:2px solid gray;
-	border-bottom:2px solid gray;
-	visibility:visible;	
-	font-family: QuickSand-regular;
-
-}
 
 .buttons {
 	padding: 12px;
@@ -159,6 +235,52 @@ body .login-buttons-dropdown-align- {
 	width: auto;
 	text-align: center;
 		
+}
+
+.oneTask {
+	
+	background-color:lightblue;
+	margin-left: auto;
+    margin-right: auto;
+	border-radius: 2px;
+	
+	border:2px solid gray;
+	visibility:visible;	
+	font-family: QuickSand-regular;
+	width:95%;
+}
+
+.buttonsHeader {
+	float: none;
+	background-color: white;		
+	border: 2px solid white;
+	height: 50px;
+	width:  95%;	
+	padding-left:3px;
+	padding-bottom:10px;
+}
+
+.taskHeader {
+	background-color: #338adc;
+	color:white;
+	border-bottom:1px solid gray;
+	padding: 1px;
+}
+
+
+.taskDescription {
+	background-color: white;
+	color:black;
+	padding: 1px;
+	
+	
+}
+
+.taskFooter {
+	background-color: #338adc;
+	color:white;
+	border-top:1px solid gray;
+	padding: 1px;
 }
 
 

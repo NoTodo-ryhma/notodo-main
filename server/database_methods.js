@@ -1,25 +1,31 @@
 if(Meteor.isServer) { 
-    Meteor.methods({
+    
+	Meteor.publish("taskslist", function () {
+		    return Tasks.find();
+		  });
+
+	
+	Meteor.methods({
     	
     	add_task: function(kutsuID) {
     		check(kutsuID, String);
     		 console.log("CREATING TASK " + kutsuID);
-    			var rowID = Tasks.insert({task_name: "",
+    			var rowID = Tasks.insert({task_desc: "",
 					owner: "",
 					assigned_to: "",
 					startDate: "",
 					endDate: "",
 					priority: "",
-					difficulty: ""});
+					difficulty: "",
+					complete: "",
+					title:""});
     			console.log("Initialized document Row id: " + rowID);
     			return rowID;
     		
     	},
  
     	update_task: function(rowID,data) {
-//    		check (rowID,String);   Höpöhöpö check joka ei tee mitään järkevää koska Meteor.
-//    		check (upd_key,Object);
-//    		check (upd_value,Object);
+
     		console.log("Updating document Row id: " + rowID);
     		        	
     		Tasks.update(rowID,{ $set: data},function(error,aff_records) {
@@ -27,9 +33,17 @@ if(Meteor.isServer) {
     		// Callback when db update ready.
     	
                 
-        });		
-	
-        }
+        });
+        
+    	}
+/*        
+        remove_task: function(rowID,selector)  {
+        	
+        	Tasks.remove(rowID);
+        	
+        }		
+*/	
+      
         
     });
 }

@@ -1,7 +1,8 @@
-contact = new Mongo.Collection("contact");
 Tasks = new Mongo.Collection("tasks");
 
+
 if (Meteor.isClient) {  
+  
   Meteor.call("getSessionId", function(err, id) {
   return console.log("Session id: " + id);
 });
@@ -9,6 +10,8 @@ if (Meteor.isClient) {
   // counter starts at 0
   //Session.setDefault("counter", 0);
 
+  
+  
   Template.tasks.rendered=function() {
     $('#startDate').datepicker();
     $('#endDate').datepicker();
@@ -16,18 +19,16 @@ if (Meteor.isClient) {
   
   Template.showTasks.helpers({
     tasks_list: function () {
-      console.log("tasks");
-      console.log(Tasks.find());
-      return Tasks.find({});
+      console.log(" Listing tasks in task_list");
+     // console.log(Tasks.find());
+      return Tasks.find();
     }
   });
- Template.tasks.helpers({
-   contacts_list: function () {
-     console.log("contacts");
-     console.log(contact.find());
-     return contact.find({});
-   }
- });
+
+ 
+	  
+  
+  
   Template.addTask.events({
     'click button': function(event, template) {
       event.preventDefault();
@@ -43,16 +44,32 @@ if (Meteor.isClient) {
     });
     }
   });
+
+  
+  
 }
 
 if (Meteor.isServer) {
   
   Meteor.startup(function () {
     // code to run on server at startup
-    Meteor.methods({
-  getSessionId: function() {
-    return this.connection.id;
-  }
+	  
+
+	  Meteor.methods({
+		  	getSessionId: function() {
+			return this.connection.id;
+  	}
 });
   });
+
+  // Database access rights definitions.
+  
+  Tasks.allow({
+	  remove: function (idString) {
+	    return true;
+	  }
+	})
+
+  
+
 }

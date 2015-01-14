@@ -1,13 +1,15 @@
 <template name="showTasks">
   <div>
   {{#each tasks_list}}
-    <div>
-      Task name: {{task_name}}
-      task start date: {{startDate}}
-      task end date: {{endDate}}
-      Task recipient: {{recipient}}
-      Task difficulty: {{difficulty}}
-      Task priority: {{priority}}
+    <div class="buttonsHeader">  
+  <img class="buttons_edit" width="25" height="25" alt="Edit" src="edit.svg"> 
+    <img class="buttons_remove" width="25" height="25" alt="Remove" src="remove.svg">
+    </div>
+
+    <div class="oneTask">
+    <div class="taskHeader">Start: {{startDate}} Task title: {{title}}    Tasker: {{owner}}    Tasked: {{assigned_to}}</div>
+	<div class="taskDescription">{{task_desc}}</div>
+    <div class="taskFooter">task end date: {{endDate}}  Task difficulty: {{difficulty}}       Task priority: {{priority}}</div>
     </div>
   {{/each}}
   </div>

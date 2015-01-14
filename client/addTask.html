@@ -1,28 +1,32 @@
 <template name="addTask">
-<div class="slider_bg">
+<div class="slider_head2">Add New Task</div>
+<div class="titleText">Title</div>
+
+<input id="inp_taskTitle" type="text" placeholder="Enter title for the task"/>
+
 <div class="titleText">Task</div>
 <div>
-<textarea id="inp_taskName" class="inp_taskName" rows="2" placeholder="Enter the task description"></textarea>
+<textarea id="inp_taskDesc"  rows="2" placeholder="Enter the task description"></textarea>
 </div>
 <div class="titleText">Owner</div>
 <div>
-<input id="inp_ownerkName" class="inp_ownerkName" type="text" placeholder="Enter the owner"/>
+<input id="inp_ownerkName"  type="text" placeholder="Choose the owner"/>
 </div>
 <div class="titleText">Assigned To</div>
 <div>
-<input id="inp_assignedName" type="text" placeholder="Enter the receiver"/>
+<input id="inp_assignedName" type="text" placeholder="Choose the receiver"/>
 </div>
 
 <div class="titleText">Start date
 	<div>
-		<input id="startDate" type="date">
+		<input id="inp_startDate" type="date">
 	</div>
 </div>
 
 <div class="titleText">
 	 Deadline
 	<div>
-		<input id="endDate" type="date">
+		<input id="inp_endDate" type="date">
 	</div>
 </div>
 
@@ -35,10 +39,11 @@ Easy
 <div id="dif3" class="ympyra"> 3 </div>
 <div id="dif4" class="ympyra"> 4 </div>
 <div id="dif5" class="ympyra"> 5 </div>
- Hard
+Hard
 </div>
 
 <div id="pri" class=range_container>
+
 <div class="titleText">Priority</div>
 Now!
 <div id="pri1" class="ympyra2"> 1 </div>
@@ -49,11 +54,10 @@ Now!
 Later..
 </div>
 
-</div >
-<div class=range_container>
+
+<div id="endButtons" class=range_container>
 <img id="buttons_ok" class="buttons" alt="OK" src="btnok.svg">
 <img id="buttons_cancel" class="buttons" alt="Cancel" src="btncan.svg">
-
 </div>
 
 

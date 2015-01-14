@@ -4,19 +4,33 @@
 </head>
 
 <body>
-  <div>
-    {{> loginButtons}}
-  </div>
+ {{#if currentUser }}
+<div class="logouthead"> {{> loginButtons}} </div>    
+ {{else}}
+ {{/if}}
+
   <div class="headTitle">
   <div style="text-decoration: line-through;font-size:30px; display: inline-block;vertical-align: top;">No</div>Todo
   </div>
-  <div>
+ {{#if currentUser }}
+ 
+ {{else}}
+  <div class="loginButtons">
+    {{> loginButtons}}
+  </div>
+{{/if}}
+
+
+<div id="btn_addTask">
+<img  height="25" width="25" src="plus.svg">
+</div>
+<div class="slider_bg">
+
     {{> addTask}}
-  </div>
-  <div>
-  
-  </div>
-  <div>
+ 
+</div>
+
+  <div class="showTasks_wg">
     {{> showTasks}}
   </div>
   <div>
