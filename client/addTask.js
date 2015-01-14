@@ -1,9 +1,10 @@
 
 
 $(document).ready(function() {
-	  
+	$(".slider_bg").hide();
+	
 	$("#btn_addTask").click(function () {
-	      
+		$(".slider_bg").show(1500);  
 		
 		Meteor.call('add_task','kutsu1',function(error,rowID) { 
 		Session.set('sess_rowID', rowID);	
