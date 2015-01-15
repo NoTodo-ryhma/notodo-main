@@ -8,22 +8,20 @@
 <div>
 <textarea id="inp_taskDesc"  rows="2" placeholder="Enter the task description"></textarea>
 </div>
-<div class="titleText">Owner</div>
 <div>
-<input id="inp_ownerkName"  type="text" placeholder="Choose the owner"/>
-</div>
-<div>
-	<div id="project-label">Select a project (type "j" for a start):</div>
+	<div class="titleText">Owner</div>
 	<img id="project-icon" src="public/transparent_1x1.png" class="ui-state-default" alt="">
-	<input id="project">
+	<input id="inp_ownerkName">
 	<input type="hidden" id="project-id">
 	<p id="project-description"></p>
 </div>
-<div class="titleText">Assigned To</div>
 <div>
-<input id="inp_assignedName" type="text" placeholder="Choose the receiver"/>
+	<div class="titleText">Assigned to</div>
+	<img id="project1-icon" src="public/transparent_1x1.png" class="ui-state-default" alt="">
+	<input id="inp_assignedName">
+	<input type="hidden" id="project1-id">
+	<p id="project1-description"></p>
 </div>
-
 <div class="titleText">Start date
 	<div>
 		<input id="inp_startDate" type="date">
