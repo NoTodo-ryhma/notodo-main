@@ -44,21 +44,22 @@ $(document).ready(function() {
 		      minLength: 0,
 		      source: users,
 		      focus: function( event, ui ) {
-		        $( "#project" ).val( ui.item.label );
+		        $( "#project" ).val( ui.item.profile.name );
 		        return false;
 		      },
 		      select: function( event, ui ) {
-		        $( "#project" ).val( ui.item.label );
-		        $( "#project-id" ).val( ui.item.value );
-		        $( "#project-description" ).html( ui.item.desc );
-		        $( "#project-icon" ).attr( "src", "images/" + ui.item.icon );
+		        $( "#project" ).val( ui.item.profile.name );
+		        console.log( ui.item.services.google.picture );
+		        //$( "#project-id" ).val( ui.item.value );
+		        //$( "#project-description" ).html( ui.item.desc );
+		        $( "#project-icon" ).attr( "src", ui.item.services.google.picture );
 		 
 		        return false;
 		      }
 		    })
 		    .autocomplete( "instance" )._renderItem = function( ul, item ) {
 		      return $( "<li>" )
-		        .append( "<a>" + item.label + "<br>" + item.desc + "</a>" )
+		        .append( "<a>" + item.profile.name + "<br>" + item.services.google.email + "</a>" )
 		        .appendTo( ul );
 		    };
 		
