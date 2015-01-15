@@ -38,7 +38,7 @@
 		done_alerts = Tasks.find({done_alert_sent:false});
 
 		
-	// Observer for changes in approved list
+	// Observer for email alert about 
 		
 		approved_tasks.observeChanges({
 				
