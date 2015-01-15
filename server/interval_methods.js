@@ -1,11 +1,11 @@
 	
-	// Start change checker.
+	// DB observer code.
 
-		completed_tasks = Tasks.find({completed:true,difficulty:"4"});
+		approved_tasks = Tasks.find({owner_approved:"1"});
 		
-	// Observer for changes in the query
+	// Observer for changes in approved list
 		
-		completed_tasks.observeChanges({
+		approved_tasks.observeChanges({
 				
 				added: function (rowId,rowFields) {
 			
@@ -34,7 +34,39 @@
 		});
 
 
-	
+
+		done_alerts = Tasks.find({done_alert_sent:false});
+
+		
+	// Observer for changes in approved list
+		
+		approved_tasks.observeChanges({
+				
+				added: function (rowId,rowFields) {
+			
+					console.log("Lisätty tehtävä: " + rowId);
+			
+			
+				},
+
+				changed: function (rowId,rowFields) {
+					
+					console.log("Muutettu tehtävä: " + rowId);
+					console.log("tiedot: " + rowFields);
+			
+			
+				},		
+				
+				removed: function (rowId,rowFields) {
+			
+					console.log("Poistettu tehtävä: " + rowId);
+			
+			
+				}
+		
+		
+		
+		});
 	
 	
 	
