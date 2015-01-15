@@ -1,4 +1,5 @@
-Tasks = new Mongo.Collection("tasks");
+
+
 
 
 if (Meteor.isClient) {  
@@ -6,7 +7,7 @@ if (Meteor.isClient) {
   Meteor.call("getSessionId", function(err, id) {
   return console.log("Session id: " + id);
 });
-  
+
   // counter starts at 0
   //Session.setDefault("counter", 0);
 
@@ -53,23 +54,37 @@ if (Meteor.isServer) {
   
   Meteor.startup(function () {
     // code to run on server at startup
+
+
 	  
 
 	  Meteor.methods({
 		  	getSessionId: function() {
 			return this.connection.id;
   	}
-});
+
+	  });
   });
 
   // Database access rights definitions.
   
   Tasks.allow({
+	  insert: function (idString) {
+		  return true;
+		  
+	  },
+
+	  update: function (idString) {
+		  return true;
+	  
+	  },
+
+  
 	  remove: function (idString) {
 	    return true;
 	  }
 	})
-
+	
   
 
 }

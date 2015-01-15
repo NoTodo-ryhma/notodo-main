@@ -5,6 +5,7 @@ if(Meteor.isServer) {
 		  });
 
 	
+	
 	Meteor.methods({
     	
     	add_task: function(kutsuID) {
@@ -17,7 +18,11 @@ if(Meteor.isServer) {
 					endDate: "",
 					priority: "",
 					difficulty: "",
-					complete: "",
+					done_alert_sent:"",
+					late_alert_sent:"",
+					owner_approved:"",
+					status: "",
+					completed:"",
 					title:""});
     			console.log("Initialized document Row id: " + rowID);
     			return rowID;
@@ -36,7 +41,8 @@ if(Meteor.isServer) {
         });
         
     	}
-/*        
+    	
+    	/* ,        
         remove_task: function(rowID,selector)  {
         	
         	Tasks.remove(rowID);
