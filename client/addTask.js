@@ -37,6 +37,36 @@ $(document).ready(function() {
 		});
 	});
 	
+	$("#project").click(function ( event) {
+		var users = Meteor.users.find().fetch();
+		
+		$( "#project" ).autocomplete({
+		      minLength: 0,
+		      source: users,
+		      focus: function( event, ui ) {
+		        $( "#project" ).val( ui.item.label );
+		        return false;
+		      },
+		      select: function( event, ui ) {
+		        $( "#project" ).val( ui.item.label );
+		        $( "#project-id" ).val( ui.item.value );
+		        $( "#project-description" ).html( ui.item.desc );
+		        $( "#project-icon" ).attr( "src", "images/" + ui.item.icon );
+		 
+		        return false;
+		      }
+		    })
+		    .autocomplete( "instance" )._renderItem = function( ul, item ) {
+		      return $( "<li>" )
+		        .append( "<a>" + item.label + "<br>" + item.desc + "</a>" )
+		        .appendTo( ul );
+		    };
+		
+		/*users.forEach(function( user_row ) {
+			console.log(user_row.services.google.picture);
+		})*/
+	});
+	
 	$("#inp_ownerkName").blur(function ( event ) {
 		var data = {owner:$(this).val()};
 		
