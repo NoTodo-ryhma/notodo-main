@@ -1,9 +1,10 @@
 
 
 $(document).ready(function() {
-	  
+	$(".slider_bg").hide();
+	
 	$("#btn_addTask").click(function () {
-	      
+		$(".slider_bg").show(1500);  
 		
 		Meteor.call('add_task','kutsu1',function(error,rowID) { 
 		Session.set('sess_rowID', rowID);	
@@ -34,6 +35,37 @@ $(document).ready(function() {
 			console.log ("virheet: " + error);	
 			
 		});
+	});
+	
+	$("#project").click(function ( event) {
+		var users = Meteor.users.find().fetch();
+		
+		$( "#project" ).autocomplete({
+		      minLength: 0,
+		      source: users,
+		      focus: function( event, ui ) {
+		        $( "#project" ).val( ui.item.profile.name );
+		        return false;
+		      },
+		      select: function( event, ui ) {
+		        $( "#project" ).val( ui.item.profile.name );
+		        console.log( ui.item.services.google.picture );
+		        //$( "#project-id" ).val( ui.item.value );
+		        //$( "#project-description" ).html( ui.item.desc );
+		        $( "#project-icon" ).attr( "src", ui.item.services.google.picture );
+		 
+		        return false;
+		      }
+		    })
+		    .autocomplete( "instance" )._renderItem = function( ul, item ) {
+		      return $( "<li>" )
+		        .append( "<a>" + item.profile.name + "<br>" + item.services.google.email + "</a>" )
+		        .appendTo( ul );
+		    };
+		
+		/*users.forEach(function( user_row ) {
+			console.log(user_row.services.google.picture);
+		})*/
 	});
 	
 	$("#inp_ownerkName").blur(function ( event ) {

@@ -2,7 +2,10 @@ if(Meteor.isServer) {
     
 	Meteor.publish("taskslist", function () {
 		    return Tasks.find();
-		  });
+		});
+	Meteor.publish("userlist", function () {
+		return Meteor.users.find();
+		});
 
 	
 	

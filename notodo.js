@@ -1,9 +1,8 @@
 
 
 
-
 if (Meteor.isClient) {  
-  
+	Meteor.subscribe("userlist");
   Meteor.call("getSessionId", function(err, id) {
   return console.log("Session id: " + id);
 });
@@ -23,6 +22,10 @@ if (Meteor.isClient) {
       console.log(" Listing tasks in task_list");
      // console.log(Tasks.find());
       return Tasks.find();
+    },
+    users_list: function () {
+    	console.log("listing users");
+    	return Meteor.users.find();
     }
   });
 
@@ -56,6 +59,7 @@ if (Meteor.isServer) {
     // code to run on server at startup
 
 
+	  
 	  
 
 	  Meteor.methods({
