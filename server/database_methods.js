@@ -15,17 +15,17 @@ if(Meteor.isServer) {
     		check(kutsuID, String);
     		 console.log("CREATING TASK " + kutsuID);
     			var rowID = Tasks.insert({task_desc: "",
-					owner: "",
-					assigned_to: "",
+					owner: "",									// Task owner's user ID
+					assigned_to: "",							// Task assignees user ID
 					startDate: "",
 					endDate: "",
 					priority: "",
 					difficulty: "",
-					done_alert_sent:"",
-					late_alert_sent:"",
-					owner_approved:"",
-					status: "",
-					completed:"",
+					done_alert_sent:"",							// True if alert for done task was sent.
+					late_alert_sent:"",							// True if alert for task about to delay was sent.
+					owner_approved:"",							// True if task owner approved task. -> If status == 3 set completed true. 
+					status: "",									// 1 = waiting, 2 = working, 3 = done.
+					completed:"",								// True if task is done and approved. Task gets purged in next DB cleanup.
 					title:""});
     			console.log("Initialized document Row id: " + rowID);
     			return rowID;
