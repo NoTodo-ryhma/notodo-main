@@ -291,20 +291,51 @@ body .login-buttons-dropdown-align- {
 }
 
 .inp_taskName {}
-.inp_ownerkName {}
+.inp_ownerkName {
+}
 
-/* Jquery-ui autocomplete with picture */
+#inp_ownerkName {
+	height:37px;
+	width:93%;
+}
+
+#inp_assignedName {
+	height:37px;
+	width:93%;
+}
+
+/* Jquery-ui autocomplete with picture for owner */
 #project-label {
     display: block;
     font-weight: bold;
     margin-bottom: 1em;
   }
+  
   #project-icon {
     float: left;
-    height: 48px;
-    width: 48px;
+    height: 37px;
+    width: 37px;
   }
+  
   #project-description {
     margin: 0;
     padding: 0;
   }
+/* Jquery-ui autocomplete with picture for assigned to */
+#project1-label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 1em;
+  }
+  
+  #project1-icon {
+    float: left;
+    height: 37px;
+    width: 37px;
+  }
+  
+  #project1-description {
+    margin: 0;
+    padding: 0;
+  }
+  
