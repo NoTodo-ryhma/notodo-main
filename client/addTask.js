@@ -1,5 +1,6 @@
 
 
+
 $(document).ready(function() {
 	$(".slider_bg").hide();
 
@@ -44,37 +45,40 @@ $(document).ready(function() {
 	$("#inp_ownerkName").click(function ( event) {
 		
 		// var users = Users.find().fetch();
-		console.log('käynnistetään find_users'); 
 		Meteor.call('find_users',function(error,result) {
+		console.log('käynnistetään find_users'); 
 			
-			console.log(result);
+		var	users2 = result;
 			
 			
-		});
-		console.log(users2[0]);
+				
+		console.log(users2);
 		$( "#inp_ownerkName" ).autocomplete({
 		      minLength: 0,
 		      source: users2,
 		      focus: function( event, ui ) {
-		        $( "#inp_ownerkName" ).val( ui.item.profile.name );
+		        $( "#inp_ownerkName" ).val( ui.item.name );
 		        return false;
 		      },
 		      select: function( event, ui ) {
-		        $( "#inp_ownerkName" ).val( ui.item.profile.name );
+		        $( "#inp_ownerkName" ).val( ui.item.name );
 		        // console.log( ui.item.services.google.picture );
-		        $( "#project-id" ).val( ui.item.services.google.email );
+		        $( "#project-id" ).val( ui.item.email );
 		        //$( "#project-description" ).html( ui.item.desc );
-		        $( "#project-icon" ).attr( "src", ui.item.services.google.picture );
+		        $( "#project-icon" ).attr( "src", ui.item.picture );
 		 
 		        return false;
 		      }
 		    })
 		    .autocomplete( "instance" )._renderItem = function( ul, item ) {
 		      return $( "<li>" )
-		        .append( "<a>" + item.profile.name + "<br>" + item.services.google.email + "</a>" )
+		        .append( "<a>" + item.name + "<br>" + item.email + "</a>" )
 		        .appendTo( ul );
 		    };
-	});
+	
+		});
+		    
+		});
 	
 	$("#inp_ownerkName").blur(function ( event ) {
 		var data = {owner:$(this).val()};

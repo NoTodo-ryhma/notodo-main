@@ -47,8 +47,39 @@ if(Meteor.isServer) {
     	
     	find_users: function () {
     		console.log ('haetaan käyttäjät');
-    		var Muserlist = Meteor.users.find({ },{fields: {name:1,email:1}}).fetch();
-    		return Muserlist;
+    		
+//    		var serviceList = Meteor.users.find({},{fields: {"services":1,"profile:1"}});
+    		var gitUserlist = Meteor.users.find({"services.github":{$exists: true}}).fetch();
+    		var googleUserlist = Meteor.users.find({"services.google":{$exists: true}}).fetch();
+    		
+    		var i = 0;
+    		var UserArray = new Array();
+
+    		// Loop for User service structure
+    		
+    		for (i = 0; i < gitUserlist.length ; i++) {
+    			
+    		var UserObject = {_id: gitUserlist[i]._id,
+    						 name: gitUserlist[i].profile.name,
+    						email: gitUserlist[i].services.github.email};
+    			
+    		UserArray.push(UserObject); 
+    						
+    		}
+    		
+    		for (i = 0; i < googleUserlist.length; i++) {
+    			var userObject = {_id: googleUserlist[i]._id,
+    							  name: googleUserlist[i].profile.name,
+    							  email: googleUserlist[i].services.google.email};
+    			
+    			UserArray.push(userObject);
+    		}
+    		
+    		
+
+
+    		
+    		return UserArray;
     		
     		
     	}
