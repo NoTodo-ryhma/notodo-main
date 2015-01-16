@@ -2,8 +2,8 @@
 
 
 if (Meteor.isClient) {  
-	Meteor.subscribe("userlist");
-  Meteor.call("getSessionId", function(err, id) {
+
+	Meteor.call("getSessionId", function(err, id) {
   return console.log("Session id: " + id);
 });
 

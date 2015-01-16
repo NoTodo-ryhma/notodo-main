@@ -3,9 +3,9 @@ if(Meteor.isServer) {
 	Meteor.publish("taskslist", function () {
 		    return Tasks.find();
 		});
-	Meteor.publish("userlist", function () {
-		return Meteor.users.find();
-		});
+//	Meteor.publish("userlist", function () {
+//		return Meteor.users.find();
+//		});
 
 	
 	
@@ -43,6 +43,14 @@ if(Meteor.isServer) {
                 
         });
         
+    	},
+    	
+    	find_users: function () {
+    		console.log ('haetaan käyttäjät');
+    		var Muserlist = Meteor.users.find({ },{fields: {name:1,email:1}}).fetch();
+    		return Muserlist;
+    		
+    		
     	}
     	
     	/* ,        

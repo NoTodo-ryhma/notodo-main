@@ -2,6 +2,10 @@
 
 $(document).ready(function() {
 	$(".slider_bg").hide();
+
+	// Subscribe to Users list
+
+
 	
 	$("#btn_addTask").click(function () {
 		$(".slider_bg").show(1500);  
@@ -38,11 +42,19 @@ $(document).ready(function() {
 	});
 	
 	$("#inp_ownerkName").click(function ( event) {
-		var users = Meteor.users.find().fetch();
 		
+		// var users = Users.find().fetch();
+		console.log('käynnistetään find_users'); 
+		Meteor.call('find_users',function(error,result) {
+			
+			console.log(result);
+			
+			
+		});
+		console.log(users2[0]);
 		$( "#inp_ownerkName" ).autocomplete({
 		      minLength: 0,
-		      source: users,
+		      source: users2,
 		      focus: function( event, ui ) {
 		        $( "#inp_ownerkName" ).val( ui.item.profile.name );
 		        return false;
@@ -284,5 +296,8 @@ Template.addTask.events({
 	}  
   });
 
+
+Meteor.subscribe("userlist");
+Users = new Mongo.Collection("users");
 
 
