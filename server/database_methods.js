@@ -55,22 +55,28 @@ if(Meteor.isServer) {
     		var i = 0;
     		var UserArray = new Array();
 
-    		// Loop for User service structure
+    		// Loop for Git service structure.
     		
     		for (i = 0; i < gitUserlist.length ; i++) {
     			
-    		var UserObject = {_id: gitUserlist[i]._id,
-    						 name: gitUserlist[i].profile.name,
-    						email: gitUserlist[i].services.github.email};
+    		var UserObject = {_id:   gitUserlist[i]._id,
+    						 name:   gitUserlist[i].profile.name,
+    						email:   gitUserlist[i].services.github.email,
+    						picture: "https://assets-cdn.github.com/images/modules/logos_page/GitHub-Mark.png"
+    						};
     			
     		UserArray.push(UserObject); 
-    						
+    			
+    	    // Loop for Google service structure.
+    		
     		}
     		
     		for (i = 0; i < googleUserlist.length; i++) {
     			var userObject = {_id: googleUserlist[i]._id,
     							  name: googleUserlist[i].profile.name,
-    							  email: googleUserlist[i].services.google.email};
+    							  email: googleUserlist[i].services.google.email,
+    							  picture: 	googleUserlist[i].services.google.picture
+    			};
     			
     			UserArray.push(userObject);
     		}
