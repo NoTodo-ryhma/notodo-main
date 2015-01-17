@@ -190,6 +190,19 @@ $(document).ready(function() {
 		
 	});	    
 
+	$("#inp_startDate").focusin(function( event ){
+		var d = new Date();
+		var isoDate = d.toISOString();
+		var dateTimeArray = isoDate.split("T");
+		var todayDate = dateTimeArray[0];
+		var dateArray = dateTimeArray[0].split("-");
+		var year = dateArray[0];
+		var yearPlus = parseInt(year) + 1;
+		var dateMax = yearPlus + "-" + dateArray[1] + "-" + dateArray[2];
+		document.getElementById("inp_startDate").setAttribute("min",todayDate);
+		document.getElementById("inp_startDate").setAttribute("max",dateMax);
+	});
+	
 	// Check if #inp_startDate should be using native or jquery datepicker.
 
 	
