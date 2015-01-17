@@ -208,7 +208,7 @@ $(document).ready(function() {
 	
 	
 	if ($("#inp_startDate").prop('type') != 'date') {
-		$("#inp_startDate").datepicker();
+		$("#inp_startDate").datepicker({maxDate: "+1y", minDate: new Date()});
 
 		console.log("using date picker");
 
@@ -245,19 +245,34 @@ $(document).ready(function() {
 		});
 	};
 
-
+	// set deadline date minimum = task start date and maximum date is one year from start date
+	$("#inp_endDate").focusin(function( event ) {
+		console.log("min end date: " + document.getElementById("inp_startDate").value);
+		var minDate = document.getElementById("inp_startDate").value;
+		var dateArray = minDate.split("-");
+		var year = dateArray[0];
+		var yearPlus = parseInt(year) + 1;
+		var dateMax = yearPlus + "-" + dateArray[1] + "-" + dateArray[2];
+		document.getElementById("inp_endDate").setAttribute("min",minDate);
+		document.getElementById("inp_endDate").setAttribute("max",dateMax);
+		
+	});
 
 
 // Check if should be using native or jquery datepicker.
 
 	if ($("#inp_endDate").prop('type') != 'date') {
-
+		
 			
 			console.log("using date picker at endDate");
+			var somedate = $("#inp_startDate").datepicker().val();
+			// var minimumDate = document.getElementById("inp_startDate").value;
+			console.log("value of minDate: " + somedate);
 			$("#inp_endDate").datepicker();
 			
 			$("#inp_endDate").datepicker('option', {onSelect: function() {
 				
+				// to Mongodb
 				var dateString = $("#inp_endDate").datepicker('getDate');
 				var data = {endDate:dateString.toISOString()};
 				
